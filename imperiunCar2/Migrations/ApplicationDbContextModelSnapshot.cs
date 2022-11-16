@@ -21,28 +21,30 @@ namespace imperiunCar2.Migrations
 
             modelBuilder.Entity("imperiumCar2.Models.CarBrands", b =>
                 {
-                    b.Property<int>("IdCarsBrands")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("NameBrands")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
-                    b.HasKey("IdCarsBrands");
+                    b.HasKey("Id");
 
                     b.ToTable("CarBrands");
                 });
 
             modelBuilder.Entity("imperiumCar2.Models.Contracts", b =>
                 {
-                    b.Property<int>("IdContract")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int>("IdPersons")
                         .HasColumnType("int");
@@ -51,12 +53,13 @@ namespace imperiunCar2.Migrations
                         .HasColumnType("int");
 
                     b.Property<double>("SaleValue")
+                        .HasMaxLength(50)
                         .HasColumnType("double");
 
                     b.Property<int>("TypesContracts")
                         .HasColumnType("int");
 
-                    b.HasKey("IdContract");
+                    b.HasKey("Id");
 
                     b.HasIndex("IdPersons");
 
@@ -65,69 +68,56 @@ namespace imperiunCar2.Migrations
                     b.ToTable("Contracts");
                 });
 
-            modelBuilder.Entity("imperiumCar2.Models.ModelsCars", b =>
-                {
-                    b.Property<int>("IdModel")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("ModelYear")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdModel");
-
-                    b.ToTable("Models");
-                });
-
             modelBuilder.Entity("imperiumCar2.Models.Persons", b =>
                 {
-                    b.Property<int>("IdPersons")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Document")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int>("IdTypePerson")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdTypesPerson")
-                        .HasColumnType("int");
-
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
-                    b.HasKey("IdPersons");
+                    b.HasKey("Id");
 
-                    b.HasIndex("IdTypesPerson");
+                    b.HasIndex("IdTypePerson");
 
                     b.ToTable("Persons");
                 });
 
             modelBuilder.Entity("imperiumCar2.Models.Transfers", b =>
                 {
-                    b.Property<int>("IdTransfers")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("IdVehicle")
                         .HasColumnType("int");
 
-                    b.Property<string>("LincensePlate")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("Value")
+                        .HasMaxLength(50)
+                        .HasColumnType("int");
 
-                    b.HasKey("IdTransfers");
+                    b.HasKey("Id");
 
                     b.HasIndex("IdVehicle");
 
@@ -136,42 +126,48 @@ namespace imperiunCar2.Migrations
 
             modelBuilder.Entity("imperiumCar2.Models.TypesPersons", b =>
                 {
-                    b.Property<int>("IdTypesPerson")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("TypePersonName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
-                    b.HasKey("IdTypesPerson");
+                    b.HasKey("Id");
 
                     b.ToTable("TypesPersons");
                 });
 
             modelBuilder.Entity("imperiumCar2.Models.Vehicles", b =>
                 {
-                    b.Property<int>("IdVehicle")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("CarsBrandsId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
-                    b.Property<int>("IdModel1")
+                    b.Property<int>("IdCarsBrands")
                         .HasColumnType("int");
 
                     b.Property<string>("Imagen")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
-                    b.Property<string>("License_plate")
+                    b.Property<string>("LicensePlate")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("ModelYear")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<double>("PriceBuy")
                         .HasColumnType("double");
@@ -188,11 +184,9 @@ namespace imperiunCar2.Migrations
                     b.Property<int>("TypesCars")
                         .HasColumnType("int");
 
-                    b.HasKey("IdVehicle");
+                    b.HasKey("Id");
 
-                    b.HasIndex("CarsBrandsId");
-
-                    b.HasIndex("IdModel1");
+                    b.HasIndex("IdCarsBrands");
 
                     b.ToTable("Vehicle");
                 });
@@ -416,7 +410,7 @@ namespace imperiunCar2.Migrations
                 {
                     b.HasOne("imperiumCar2.Models.TypesPersons", "TypePerson")
                         .WithMany("Persons")
-                        .HasForeignKey("IdTypesPerson")
+                        .HasForeignKey("IdTypePerson")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -438,19 +432,11 @@ namespace imperiunCar2.Migrations
                 {
                     b.HasOne("imperiumCar2.Models.CarBrands", "CarsBrands")
                         .WithMany("Vehicles")
-                        .HasForeignKey("CarsBrandsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("imperiumCar2.Models.ModelsCars", "IdModel")
-                        .WithMany("Vehicles")
-                        .HasForeignKey("IdModel1")
+                        .HasForeignKey("IdCarsBrands")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("CarsBrands");
-
-                    b.Navigation("IdModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -505,11 +491,6 @@ namespace imperiunCar2.Migrations
                 });
 
             modelBuilder.Entity("imperiumCar2.Models.CarBrands", b =>
-                {
-                    b.Navigation("Vehicles");
-                });
-
-            modelBuilder.Entity("imperiumCar2.Models.ModelsCars", b =>
                 {
                     b.Navigation("Vehicles");
                 });

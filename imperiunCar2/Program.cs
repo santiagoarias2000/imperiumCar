@@ -1,4 +1,4 @@
-using imperiunCar2.Data;
+    using imperiunCar2.Data;
 using imperiunCar2.Data.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +17,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     );
 });
 builder.Services.AddScoped<ICarBrandsService, CarBrandsService>();
+builder.Services.AddScoped<IContractsService, ContractsService>();
+builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<ITransfersService, TransfersService>();
+builder.Services.AddScoped<ITypePersonService, TypePersonService>();
+builder.Services.AddScoped<IVehiclesService, VehiclesService>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -50,5 +55,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+AppDbInitializer.Seed(app);
 
 app.Run();

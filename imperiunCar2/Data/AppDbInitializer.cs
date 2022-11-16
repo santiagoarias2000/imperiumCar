@@ -3,7 +3,7 @@ using imperiumCar2.Models;
 
 namespace imperiunCar2.Data
 {
-    public class AppDbInitiaalizer
+    public class AppDbInitializer
     {
         public static void Seed(IApplicationBuilder applicationBuilder)
         {
@@ -30,16 +30,17 @@ namespace imperiunCar2.Data
 
                             NameBrands = "Mercedes"
                         },
-                          new CarBrands()
+                        new CarBrands()
                         {
 
                             NameBrands = "Mazda"
                         },
-                            new CarBrands()
+                        new CarBrands()
                         {
 
                             NameBrands = "Toyota"
-                        },  new CarBrands()
+                        },  
+                        new CarBrands()
                         {
 
                             NameBrands = "Nissan"
@@ -70,43 +71,6 @@ namespace imperiunCar2.Data
 
 
 
-                if (!context.Transfers.Any())
-                {
-                    context.Transfers.AddRange(new List<Transfers>()
-                   {
-                        new Transfers()
-                        {
-                            Value = 12312,
-                            IdVehicle = 1
-                        },
-                        new Transfers()
-                        {
-                            Value = 12342,
-                            IdVehicle = 2
-                        },
-                        new Transfers()
-                        {
-                            Value = 13421,
-                            IdVehicle = 3
-                        },
-                         new Transfers()
-                        {
-                            Value = 12987,
-                            IdVehicle = 4
-                        },
-                          new Transfers()
-                        {
-                            Value = 12451,
-                            IdVehicle = 5
-                        },
-                           new Transfers()
-                        {
-                            Value = 12765,
-                            IdVehicle = 6
-                        },
-                        });
-                    context.SaveChanges();
-                }
 
 
 
@@ -186,7 +150,7 @@ namespace imperiunCar2.Data
                             PriceSale = 115000000,
                             ModelYear = "2020", 
                             //LLave foranea
-                            CarsBrandsId = 1,
+                            IdCarsBrands = 1,
                             LicensePlate="ADS-234",
                             Sure = true,
                             TechnicalMechanical = true,
@@ -201,7 +165,7 @@ namespace imperiunCar2.Data
                             PriceSale = 12000000,
                             ModelYear = "2020", 
                             //LLave foranea
-                            CarsBrandsId = 1,
+                            IdCarsBrands = 1,
                             LicensePlate="ASD-434",
                             Sure = true,
                             TechnicalMechanical = true,
@@ -215,7 +179,7 @@ namespace imperiunCar2.Data
                             PriceBuy = 6000000,
                             PriceSale = 80000000,
                             ModelYear = "2018",
-                            CarsBrandsId = 1,
+                            IdCarsBrands = 1,
                             LicensePlate="rts-224",
                             Sure = true,
                             TechnicalMechanical = true,
@@ -229,7 +193,7 @@ namespace imperiunCar2.Data
                             PriceBuy = 12000000,
                             PriceSale = 150000000,
                             ModelYear = "2021",
-                            CarsBrandsId = 1,
+                            IdCarsBrands = 1,
                             LicensePlate="otr-454",
                             Sure = true,
                             TechnicalMechanical = true,
@@ -243,7 +207,7 @@ namespace imperiunCar2.Data
                             PriceBuy = 95000000,
                             PriceSale = 130000000,
                             ModelYear = "2019",
-                            CarsBrandsId = 1,
+                            IdCarsBrands = 1,
                             LicensePlate="ujr-485",
                             Sure = true,
                             TechnicalMechanical = true,
@@ -257,7 +221,7 @@ namespace imperiunCar2.Data
                             PriceBuy = 70000000,
                             PriceSale = 90000000,
                             ModelYear = "2016",
-                            CarsBrandsId = 1,
+                            IdCarsBrands = 1,
                             LicensePlate="qmr-193",
                             Sure = true,
                             TechnicalMechanical = true,
@@ -332,12 +296,45 @@ namespace imperiunCar2.Data
 
                         });
                     context.SaveChanges();
+
+                    if (!context.Transfers.Any())
+                    {
+                        context.Transfers.AddRange(new List<Transfers>()
+                   {
+                        new Transfers()
+                        {
+                            Value = 12312,
+                            IdVehicle = 1
+                        },
+                        new Transfers()
+                        {
+                            Value = 12342,
+                            IdVehicle = 2
+                        },
+                        new Transfers()
+                        {
+                            Value = 13421,
+                            IdVehicle = 3
+                        },
+                         new Transfers()
+                        {
+                            Value = 12987,
+                            IdVehicle = 4
+                        },
+                          new Transfers()
+                        {
+                            Value = 12451,
+                            IdVehicle = 5
+                        },
+                           new Transfers()
+                        {
+                            Value = 12765,
+                            IdVehicle = 6
+                        },
+                        });
+                        context.SaveChanges();
+                    }
                 }
-
-
-
-
-
             }
 
         }

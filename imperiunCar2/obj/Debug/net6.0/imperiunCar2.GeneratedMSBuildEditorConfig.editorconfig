@@ -19,6 +19,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/CarBrands/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyQnJhbmRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/CarBrands/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyQnJhbmRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/CarBrands/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyQnJhbmRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -57,6 +65,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/TypePersons/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZVBlcnNvbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Vehicles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWNsZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Vehicles/Index.cshtml]

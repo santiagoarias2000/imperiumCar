@@ -1,40 +1,123 @@
 ﻿using imperiumCar2.Models;
 using Microsoft.EntityFrameworkCore;
+using ustaTickets.Data.Base;
+using imperiunCar2.Data.ViewModels;
+using System.Linq.Expressions;
 
 namespace imperiunCar2.Data.Service
 {
-    public class PersonService : IPersonService
+    public class PersonService : EntityBaseRepository<Vehicles>, IPersonService
     {
         private readonly ApplicationDbContext _context;
-
-        public PersonService(ApplicationDbContext context)
+        public PersonService(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
-        public async Task AddAsync(Persons person)
+
+        public async Task AddNewPersonAsync(NewTypePersonVM data)
         {
-            await _context.Persons.AddAsync(person);
+            var newPerson = new Persons()
+            {
+                Document = data.Document,
+                Name = data.Name,
+                LastName = data.LastName,
+                PhoneNumber = data.PhoneNumber,
+                IdTypePerson = data.IdTypePerson,
+            };
+            await _context.Persons.AddAsync(newPerson);
+            await _context.SaveChangesAsync();
+
+            // Add Type
+            foreach (var typePersonId in data.TypesPersonIds)
+            {
+                var newTypePerson  = new TypesPersons()
+                {
+                    Id = newPerson.Id
+                };
+                await _context.TypesPersons.AddAsync(newTypePerson);
+            }
             await _context.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public Task DeletePersonAsync(NewTypePersonVM data)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Persons>> GetAllAsync()
+        public async Task<Persons> GetPersonByIdAsync(int id)
         {
-            var result = await _context.Persons.ToListAsync();
-            return result;
+            var movieDetails = await _context.Persons
+                .Include(tp => tp.TypePerson)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            return movieDetails;
         }
 
-        public async Task<Persons> GetByIdAsync(int id)
+        public async Task<NewTypePersonDropdownsVM> GetNewPersonDropdownsValues()
         {
-            var result = await _context.Persons.FirstOrDefaultAsync(a => a.IdPersons == id); 
-            return result;
+            var response = new NewTypePersonDropdownsVM()
+            {
+
+                TypePerson = await _context.TypesPersons.OrderBy(a => a.TypePersonName).ToListAsync(),
+            };
+
+            return response;
         }
 
-        public CarBrands Update(int id, Persons NewPerson)
+        public async Task UpdatePersonAsync(NewTypePersonVM data)
+        {
+            var dbPerson = await _context.Persons.FirstOrDefaultAsync(m => m.Id == data.Id);
+            if (dbPerson != null)
+            {
+
+                dbPerson.Name = data.Name;
+                dbPerson.Document = data.Document;
+                dbPerson.Name = data.Name;
+                dbPerson.LastName = data.LastName;
+                dbPerson.PhoneNumber = data.PhoneNumber;
+                dbPerson.IdTypePerson = data.IdTypePerson;
+
+                await _context.SaveChangesAsync();
+            }
+
+            // Remove existing actors
+            var existingPersonDb = await _context.TypesPersons.Where(m => m.Id == data.Id).ToListAsync();
+            _context.TypesPersons.RemoveRange(existingPersonDb);
+            await _context.SaveChangesAsync();
+
+            // Add Movie Actors
+            foreach (var typePersonId in data.TypesPersonIds)
+            {
+                var newPerson = new TypesPersons()
+                {
+                    Id = data.Id
+                };
+                await _context.TypesPersons.AddAsync(newPerson);
+            }
+            await _context.SaveChangesAsync();
+        }
+
+        Task<IEnumerable<Persons>> IEntityBaseRepository<Persons>.GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Persons>> GetAllAsync(params Expression<Func<Persons, object>>[] includeProperties)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Persons> IEntityBaseRepository<Persons>.GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddAsync(Persons entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateAsync(int id, Persons entity)
         {
             throw new NotImplementedException();
         }

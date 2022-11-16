@@ -9,3 +9,4 @@ namespace imperiunCar2.Data.Service
         public VehiclesService(ApplicationDbContext context) : base(context) { }
     }
 }
+ 

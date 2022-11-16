@@ -13,12 +13,12 @@ namespace imperiumCar2.Models
         [Display(Name = "Imagen")]
         [Required(ErrorMessage = "Imagen is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Imagen must be between 3 and 50 chars")]
-        public string Imagen { get; set; }
+        public string? Imagen { get; set; }
 
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Description is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Description must be between 3 and 50 chars")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Display(Name = "Price buy")]
         [Required(ErrorMessage = "Price buy is required")]
@@ -31,12 +31,12 @@ namespace imperiumCar2.Models
         [Display(Name = "Model year")]
         [Required(ErrorMessage = "Model year is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Model year must be between 3 and 50 chars")]
-        public string ModelYear { get; set; }
+        public string? ModelYear { get; set; }
 
         [Display(Name = "License plate")]
         [Required(ErrorMessage = "License plate is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "License plate must be between 3 and 50 chars")]
-        public string LicensePlate { get; set; }
+        public string? LicensePlate { get; set; }
 
         [Display(Name = "Sure")]
         [Required(ErrorMessage = "Sure is required")]
@@ -48,9 +48,9 @@ namespace imperiumCar2.Models
 
 
         //Relationship
-        public int CarsBrandsId { get; set; }
-        [ForeignKey("CarsBrandsId")]
-        public CarBrands CarsBrands { get; set; }
+        public int IdCarsBrands { get; set; }
+        [ForeignKey("IdCarsBrands")]
+        public CarBrands? CarsBrands { get; set; }
 
         public TypesCars TypesCars { get; set; }
 

@@ -18,6 +18,6 @@ namespace imperiumCar2.Models
         //Relationship
         public int IdVehicle { get; set; }
         [ForeignKey("IdVehicle")]
-        public Vehicles Vehicle { get; set; }
+        public Vehicles? Vehicle { get; set; }
     }
 }

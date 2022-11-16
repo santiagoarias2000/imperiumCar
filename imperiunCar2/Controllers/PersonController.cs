@@ -1,6 +1,8 @@
 ﻿using imperiumCar2.Models;
 using imperiunCar2.Data.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using imperiunCar2.Data.ViewModels;
 
 namespace imperiunCar2.Controllers
 {
@@ -14,30 +16,91 @@ namespace imperiunCar2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var allData = await _service.GetAllAsync();
-            return View(allData);
+            var data = await _service.GetAllAsync(tp => tp.TypePerson);
+            return View(data);
         }
-        //Get: Actor/Create
-        public IActionResult Create()
+
+        public async Task<IActionResult> Filter(string searchString)
         {
+            var data = await _service.GetAllAsync(tp => tp.TypePerson);
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var filteredResult = data.Where(
+                    n => n.Name.Contains(searchString)
+                ).ToList();
+                return View("Index", filteredResult);
+            }
+
+            return View("Index", data);
+        }
+
+        // Get: Person/Details/id
+        public async Task<IActionResult> Details(int id)
+        {
+            var data = await _service.GetPersonByIdAsync(id);
+            return View(data);
+        }
+
+        // Get: Person/Create
+        public async Task<IActionResult> Create()
+        {
+            var movieDropdownsData = await _service.GetNewPersonDropdownsValues();
+            ViewBag.TypePerson = new SelectList(
+                movieDropdownsData.TypePerson, "Id", "TypePersonName"
+            );
             return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("SaleValue, Description")] Persons persons)
+        public async Task<IActionResult> Create(NewTypePersonVM movie)
         {
             if (!ModelState.IsValid)
             {
-                return View(persons);
+                var movieDropdownsData = await _service.GetNewPersonDropdownsValues();
+                ViewBag.TypePerson = new SelectList(movieDropdownsData.TypePerson, "Id", "TypePersonName");;
+
+                return View(movie);
             }
-            await _service.AddAsync(persons);
+            await _service.AddNewPersonAsync(movie);
             return RedirectToAction(nameof(Index));
         }
-        //Get: Actors/Details/1
-        public async Task<IActionResult> Details(int id)
+
+        // Get: Movie/Edit/id
+        public async Task<IActionResult> Edit(int id)
         {
-            var contractsDetails = await _service.GetByIdAsync(id);
-            if (contractsDetails == null) return View("Empty");
-            return View(contractsDetails);
+            var personDetails = await _service.GetPersonByIdAsync(id);
+            if (personDetails == null) return View("NotFound");
+
+            var response = new NewTypePersonVM()
+            {
+                Id = personDetails.Id,
+                Document= personDetails.Document,
+                Name = personDetails.Name,
+                LastName = personDetails.LastName,
+                PhoneNumber = personDetails.PhoneNumber,
+                IdTypePerson = personDetails.IdTypePerson,
+            };
+
+            var movieDropdownsData = await _service.GetNewPersonDropdownsValues();
+            ViewBag.TypePerson = new SelectList(movieDropdownsData.TypePerson, "Id", "TypePersonName");
+            return View(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, NewTypePersonVM person)
+        {
+            if (id != person.Id) return View("NotFound");
+
+            if (!ModelState.IsValid)
+            {
+                var movieDropdownsData = await _service.GetNewPersonDropdownsValues();
+                ViewBag.TypePerson = new SelectList(movieDropdownsData.TypePerson, "Id", "TypePersonName");
+
+                return View(person);
+            }
+            await _service.UpdatePersonAsync(person);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

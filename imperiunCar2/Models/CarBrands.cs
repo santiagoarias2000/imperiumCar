@@ -11,7 +11,7 @@ namespace imperiumCar2.Models
         [Display(Name = "Name Brands")]
         [Required(ErrorMessage = "Name Brands is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Name brands must be between 3 and 50 chars")]
-        public string NameBrands { get; set; }
+        public string? NameBrands { get; set; }
 
         //Relationship
         public List<Vehicles>? Vehicles { get; set; }

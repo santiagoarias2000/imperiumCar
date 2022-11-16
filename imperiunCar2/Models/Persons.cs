@@ -12,7 +12,7 @@ namespace imperiumCar2.Models
         [Display(Name = "Document")]
         [Required(ErrorMessage = "Document is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Document must be between 3 and 50 chars")]
-        public string Document { get; set; }
+        public string? Document { get; set; }
 
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Name is required")]
@@ -22,17 +22,18 @@ namespace imperiumCar2.Models
         [Display(Name = "Last Name")]
         [Required(ErrorMessage = "Last name is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Last name must be between 3 and 50 chars")]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Description is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Description must be between 3 and 50 chars")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         //Relationship
 
         public int IdTypePerson { get; set; }
-        [ForeignKey("IdTypesPerson")]
+        [ForeignKey("IdTypePerson")]
+        [Display(Name = "Type person")]
         public TypesPersons TypePerson { get; set; }
 
         public List<Contracts>? Contract { get; set; }

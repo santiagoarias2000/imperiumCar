@@ -1,41 +1,35 @@
 ﻿using imperiumCar2.Models;
+using imperiunCar2.Data.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using ustaTickets.Data.Base;
 
 namespace imperiunCar2.Data.Service
 {
-    public class TransfersService : ITransfersService
+    public class TransfersService : EntityBaseRepository<Transfers>, ITransfersService
     {
-        private readonly ApplicationDbContext _context;
+        public TransfersService(ApplicationDbContext context) : base(context) { }
 
-        public TransfersService(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        public async Task AddAsync(Transfers transfers)
-        {
-            await _context.Transfers.AddAsync(transfers);
-            await _context.SaveChangesAsync();
-        }
-
-        public void Delete(int id)
+        public Task AddNewTransfersAsync(NewVehicleVM data)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Transfers>> GetAllAsync()
+        public Task DeleteTransfersAsync(NewVehicleVM data)
         {
-            var result = await _context.Transfers.ToListAsync();
-            return result;
+            throw new NotImplementedException();
         }
 
-        public async Task<Transfers> GetByIdAsync(int id)
+        public Task<NewVehicleDropdownsVM> GetNewTransfersDropdownsValues()
         {
-            var result = await _context.Transfers.FirstOrDefaultAsync(a => a.IdTransfers == id);
-            return result;
+            throw new NotImplementedException();
         }
 
-        public CarBrands Update(int id, Transfers NewTransfers)
+        public Task<Transfers> GetTransfersByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateTransfersAsync(NewVehicleVM data)
         {
             throw new NotImplementedException();
         }

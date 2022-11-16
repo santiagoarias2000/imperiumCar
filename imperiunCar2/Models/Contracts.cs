@@ -18,16 +18,16 @@ namespace imperiumCar2.Models
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Description is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Description must be between 3 and 50 chars")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         //Relationship
         public int IdPersons { get; set; }
         [ForeignKey("IdPersons")]
-        public Persons Persons { get; set; }
+        public Persons? Persons { get; set; }
 
         public int IdVehicle { get; set; }
         [ForeignKey("IdVehicle")]
-        public Vehicles Vehicle { get; set; }
+        public Vehicles? Vehicle { get; set; }
 
         public TypesContracts TypesContracts { get; set; }
 

@@ -1,12 +1,15 @@
-﻿using imperiumCar2.Models; 
+﻿using imperiumCar2.Models;
+using ustaTickets.Data.Base;
+using imperiunCar2.Data.ViewModels;
+
 namespace imperiunCar2.Data.Service
 {
-    public interface ITransfersService
+    public interface ITransfersService: IEntityBaseRepository<Transfers>
     {
-        Task<IEnumerable<Transfers>> GetAllAsync();
-        Task<Transfers> GetByIdAsync(int id);
-        Task AddAsync(Transfers transfers);
-        CarBrands Update(int id, Transfers NewTransfers);
-        void Delete(int id);
+        Task<Transfers> GetTransfersByIdAsync(int id);
+        Task<NewVehicleDropdownsVM> GetNewTransfersDropdownsValues();
+        Task AddNewTransfersAsync(NewVehicleVM data);
+        Task UpdateTransfersAsync(NewVehicleVM data);
+        Task DeleteTransfersAsync(NewVehicleVM data);
     }
 }

@@ -1,13 +1,9 @@
 ﻿using imperiumCar2.Models;
+using ustaTickets.Data.Base;
 
 namespace imperiunCar2.Data.Service
 {
-    public interface ICarBrandsService
+    public interface ICarBrandsService: IEntityBaseRepository<CarBrands>
     {
-        Task<IEnumerable<CarBrands>> GetAllAsync();
-        Task<CarBrands> GetByIdAsync(int id);
-        Task AddAsync(CarBrands carBrands);
-        CarBrands Update(int id, CarBrands NewCarBrand);
-        void Delete(int id);
     }
 }
