@@ -27,7 +27,7 @@ namespace imperiunCar2.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 var filteredResult = data.Where(
-                    n => n.Vehicle.Description.Contains(searchString)
+                    n => n.Vehicle.LicensePlate.Contains(searchString)
                 ).ToList();
                 return View("Index", filteredResult);
             }

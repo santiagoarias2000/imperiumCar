@@ -34,7 +34,7 @@ namespace imperiumCar2.Models
         public int IdTypePerson { get; set; }
         [ForeignKey("IdTypePerson")]
         [Display(Name = "Type person")]
-        public TypesPersons TypePerson { get; set; }
+        public TypesPersons? TypePerson { get; set; }
 
         public List<Contracts>? Contract { get; set; }
     }

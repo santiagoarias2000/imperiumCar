@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace imperiunCar2.Controllers
 {
-    public class ContractController : Controller
+    public class ContractsController : Controller
     {
         private readonly IContractsService _service;
-        public ContractController(IContractsService service)
+        public ContractsController(IContractsService service)
         {
             _service = service;
         }

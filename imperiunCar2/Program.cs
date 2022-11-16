@@ -20,7 +20,7 @@ builder.Services.AddScoped<ICarBrandsService, CarBrandsService>();
 builder.Services.AddScoped<IContractsService, ContractsService>();
 builder.Services.AddScoped<IPersonService, PersonService>();
 builder.Services.AddScoped<ITransfersService, TransfersService>();
-builder.Services.AddScoped<ITypePersonService, TypePersonService>();
+builder.Services.AddScoped<ITypesPersonsService, TypesPersonsService>();
 builder.Services.AddScoped<IVehiclesService, VehiclesService>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

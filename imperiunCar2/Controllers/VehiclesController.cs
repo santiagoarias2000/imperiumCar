@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using imperiunCar2.Data.Service;
 using imperiumCar2.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using imperiunCar2.Data.ViewModels;
 
 namespace imperiunCar2.Controllers
 {
@@ -14,67 +16,98 @@ namespace imperiunCar2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var allData = await _service.GetAllAsync();
-            return View(allData);
+            var data = await _service.GetAllAsync(tp => tp.CarsBrands);
+            return View(data);
         }
-        //Get: vehicles/Create
-        public IActionResult Create()
+
+        public async Task<IActionResult> Filter(string searchString)
         {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create([Bind("Imagen, Description, PriceBuy, PriceSale, ModelYear, LicensePlate, Sure, TechnicalMechanical")] Vehicles vehicles)
-        {
-            if (!ModelState.IsValid)
+            var data = await _service.GetAllAsync(tp => tp.CarsBrands);
+
+            if (!string.IsNullOrEmpty(searchString))
             {
-                return View(vehicles);
+                var filteredResult = data.Where(
+                    n => n.LicensePlate.Contains(searchString)
+                ).ToList();
+                return View("Index", filteredResult);
             }
-            await _service.AddAsync(vehicles);
-            return RedirectToAction(nameof(Index));
+
+            return View("Index", data);
         }
-        //Get: vehicles/Details/1
+
+        // Get: Person/Details/id
         public async Task<IActionResult> Details(int id)
         {
-            var vehiclesDetails = await _service.GetByIdAsync(id);
-            if (vehiclesDetails == null) return View("Empty");
-            return View(vehiclesDetails);
+            var data = await _service.GetVehiclesByIdAsync(id);
+            return View(data);
         }
 
-        //Get: vehicles/Edit/id
-        public async Task<IActionResult> Edit(int id)
+        // Get: Person/Create
+        public async Task<IActionResult> Create()
         {
-            var vehiclesDetails = await _service.GetByIdAsync(id);
-            if (vehiclesDetails == null) return View("NotFound");
-            return View(vehiclesDetails);
+            var movieDropdownsData = await _service.GetNewVehiclesDropdownsValues();
+            ViewBag.TypePerson = new SelectList(
+                movieDropdownsData.CarBrands, "Id", "NameBrands"
+            );
+            return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Imagen, Description, PriceBuy, PriceSale, ModelYear, LicensePlate, Sure, TechnicalMechanical")] Vehicles vehicles)
+        public async Task<IActionResult> Create(NewCarBrandsVM CarBrands)
         {
             if (!ModelState.IsValid)
             {
-                //view data error...
-                //var message = string.Join(" | ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
-                return View(vehicles);
+                var movieDropdownsData = await _service.GetNewVehiclesDropdownsValues();
+                ViewBag.CarBrands = new SelectList(movieDropdownsData.CarBrands, "Id", "NameBrands"); ;
+
+                return View(CarBrands);
             }
-            await _service.UpdateAsync(id, vehicles);
+            await _service.AddNewVehiclesAsync(CarBrands);
             return RedirectToAction(nameof(Index));
         }
-        //Get: vehicles/Delete/id
-        public async Task<IActionResult> Delete(int id)
-        {
-            var actorDetails = await _service.GetByIdAsync(id);
 
-            if (actorDetails == null) return View("NotFound");
-            return View(actorDetails);
+        // Get: Movie/Edit/id
+        public async Task<IActionResult> Edit(int id)
+        {
+            var vehicleDetails = await _service.GetVehiclesByIdAsync(id);
+            if (vehicleDetails == null) return View("NotFound");
+
+            var response = new NewCarBrandsVM()
+            {
+                Id = vehicleDetails.Id,
+                PriceBuy = vehicleDetails.PriceBuy,
+                PriceSale = vehicleDetails.PriceSale,
+                LicensePlate = vehicleDetails.LicensePlate,
+                Sure = vehicleDetails.Sure,
+                Transfer = vehicleDetails.Transfer,
+                Description = vehicleDetails.Description,
+                Imagen = vehicleDetails.Imagen,
+                TechnicalMechanical = vehicleDetails.TechnicalMechanical,
+                ModelYear = vehicleDetails.ModelYear,
+                TypesCars = vehicleDetails.TypesCars,
+                IdCarsBrands = vehicleDetails.IdCarsBrands,
+                CarsBrands = vehicleDetails.CarsBrands,
+                Contract = vehicleDetails.Contract,
+            };
+
+            var movieDropdownsData = await _service.GetNewVehiclesDropdownsValues();
+            ViewBag.CarBrands = new SelectList(movieDropdownsData.CarBrands, "Id", "NameBrands");
+            return View(response);
         }
 
-
-        [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, NewCarBrandsVM carBrands)
         {
-            var actorDetails = await _service.GetByIdAsync(id);
-            if (actorDetails == null) return View("NotFound");
-            await _service.DeleteAsync(id);
+            if (id != carBrands.Id) return View("NotFound");
+
+            if (!ModelState.IsValid)
+            {
+                var movieDropdownsData = await _service.GetNewVehiclesDropdownsValues();
+                ViewBag.CarBrands = new SelectList(movieDropdownsData.CarBrands, "Id", "NameBrands");
+
+                return View(carBrands);
+            }
+            await _service.UpdateVehiclesAsync(carBrands);
             return RedirectToAction(nameof(Index));
         }
     }

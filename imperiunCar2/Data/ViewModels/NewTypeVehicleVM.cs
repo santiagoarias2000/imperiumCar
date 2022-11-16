@@ -21,6 +21,10 @@ namespace imperiunCar2.Data.ViewModels
         [ForeignKey("IdVehicle")]
         public Vehicles Vehicle { get; set; }
 
+        [Display(Name = "Select vehicles")]
+        [Required(ErrorMessage = "vehicles is required")]
+        public List<int> VehiclesIds { get; set; }
+
 
     }
 }

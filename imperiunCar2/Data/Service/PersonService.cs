@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace imperiunCar2.Data.Service
 {
-    public class PersonService : EntityBaseRepository<Vehicles>, IPersonService
+    public class PersonService : EntityBaseRepository<Persons>, IPersonService
     {
         private readonly ApplicationDbContext _context;
         public PersonService(ApplicationDbContext context) : base(context)
@@ -97,29 +97,6 @@ namespace imperiunCar2.Data.Service
             await _context.SaveChangesAsync();
         }
 
-        Task<IEnumerable<Persons>> IEntityBaseRepository<Persons>.GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<IEnumerable<Persons>> GetAllAsync(params Expression<Func<Persons, object>>[] includeProperties)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Persons> IEntityBaseRepository<Persons>.GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task AddAsync(Persons entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(int id, Persons entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
