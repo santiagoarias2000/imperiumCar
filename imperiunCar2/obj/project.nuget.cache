@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9qJp9jx4yXGAxBw6AjR5Rionv/BvhhiqehudbtsmoDvCxvAdKYsNZD1GR9vxqk2rsXkFMDXQPiJhQkknWmpZNA==",
+  "dgSpecHash": "CkwteiesjP6BR5jYUGF0GWpP9tp4+IPpxsF/PT9j/421MDlJBslz7YOBCV+szyzX6y9rzesPd4etna6Dmy97nQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\santy\\OneDrive\\Documentos\\Santiago Universidad\\7 SEMESTRE\\ASP.NET\\imperiunCar2\\imperiunCar2\\imperiunCar2.csproj",
+  "projectFilePath": "C:\\Users\\santy\\OneDrive\\Documentos\\Santiago Universidad\\7 SEMESTRE\\ASP.NET\\imperiunCar2\\imperiunCar2\\imperiumCar2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\santy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\santy\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.7\\microsoft.aspnetcore.cryptography.internal.6.0.7.nupkg.sha512",

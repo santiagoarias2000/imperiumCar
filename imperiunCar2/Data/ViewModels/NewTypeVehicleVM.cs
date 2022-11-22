@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace imperiunCar2.Data.ViewModels
+namespace imperiumCar2.Data.ViewModels
 {
     public class NewVehicleVM
     {
@@ -12,18 +12,12 @@ namespace imperiunCar2.Data.ViewModels
 
         [Display(Name = "Value")]
         [Required(ErrorMessage = "Value is required")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Value must be between 3 and 50 chars")]
-        public int Value { get; set; }
+        public int ValueTrans { get; set; }
 
-
-        //Relationship
-        public int IdVehicle { get; set; }
-        [ForeignKey("IdVehicle")]
-        public Vehicles Vehicle { get; set; }
 
         [Display(Name = "Select vehicles")]
         [Required(ErrorMessage = "vehicles is required")]
-        public List<int> VehiclesIds { get; set; }
+        public int IdVehicle { get; set; }
 
 
     }

@@ -1,0 +1,54 @@
+﻿@model imperiumCar2.Models.Persons
+
+@{
+    ViewData["Title"] = "@Model.Document";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p><h1>Details for @Model.Document</h1></p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                    <div class="form-group">
+                        <label asp-for="Document" class="control-label"></label>
+                        <input asp-for="Document" class="form-control" />
+                        <span asp-validation-for="Document" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="IdTypePerson" class="control-label"></label>
+                        <input asp-for="IdTypePerson" class="form-control" />
+                        <span asp-validation-for="IdTypePerson" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <a class="btn btn-outline-success float-end" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $("#Imagen").val();
+        })
+    </script>
+}

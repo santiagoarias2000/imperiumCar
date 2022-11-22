@@ -2341,9 +2341,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\santy\\OneDrive\\Documentos\\Santiago Universidad\\7 SEMESTRE\\ASP.NET\\imperiunCar2\\imperiunCar2\\imperiunCar2.csproj",
-      "projectName": "imperiunCar2",
-      "projectPath": "C:\\Users\\santy\\OneDrive\\Documentos\\Santiago Universidad\\7 SEMESTRE\\ASP.NET\\imperiunCar2\\imperiunCar2\\imperiunCar2.csproj",
+      "projectUniqueName": "C:\\Users\\santy\\OneDrive\\Documentos\\Santiago Universidad\\7 SEMESTRE\\ASP.NET\\imperiunCar2\\imperiunCar2\\imperiumCar2.csproj",
+      "projectName": "imperiumCar2",
+      "projectPath": "C:\\Users\\santy\\OneDrive\\Documentos\\Santiago Universidad\\7 SEMESTRE\\ASP.NET\\imperiunCar2\\imperiunCar2\\imperiumCar2.csproj",
       "packagesPath": "C:\\Users\\santy\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\santy\\OneDrive\\Documentos\\Santiago Universidad\\7 SEMESTRE\\ASP.NET\\imperiunCar2\\imperiunCar2\\obj\\",
       "projectStyle": "PackageReference",

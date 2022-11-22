@@ -1,6 +1,6 @@
 ﻿using imperiumCar2.Models;
 
-namespace imperiunCar2.Data.ViewModels
+namespace imperiumCar2.Data.ViewModels
 {
     public class NewVehicleDropdownsVM
     {

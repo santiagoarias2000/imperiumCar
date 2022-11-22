@@ -1,0 +1,75 @@
+﻿@using imperiumCar2.Data.Emun
+@model imperiumCar2.Data.ViewModels.NewCarBrandsVM
+
+@{
+    ViewData["Title"] = "@Model.LicensePlate";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p><h1>Details for @Model.LicensePlate</h1></p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <div class="form-group">
+                    <label asp-for="IdCarsBrands" class="control-label"></label>
+                    <select asp-for="IdCarsBrands" class="form-control" asp-items="ViewBag.CarBrands" multiple></select>
+                    <span asp-validation-for="IdCarsBrands" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LicensePlate" class="control-label"></label>
+                    <input asp-for="LicensePlate" class="form-control" />
+                    <span asp-validation-for="LicensePlate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ModelYear" class="control-label"></label>
+                    <input asp-for="ModelYear" class="form-control" />
+                    <span asp-validation-for="ModelYear" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PriceBuy" class="control-label"></label>
+                    <input asp-for="PriceBuy" class="form-control" />
+                    <span asp-validation-for="PriceBuy" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PriceSale" class="control-label"></label>
+                    <input asp-for="PriceSale" class="form-control" />
+                    <span asp-validation-for="PriceSale" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Sure" class="control-label"></label>
+                    <input type="checkbox" asp-for="Sure" />
+                    <span asp-validation-for="Sure" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TechnicalMechanical" class="control-label"></label>
+                    <input type="checkbox" asp-for="TechnicalMechanical" />
+                    <span asp-validation-for="TechnicalMechanical" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TypesCars" class="control-label"></label>
+                    <select asp-for="TypesCars" class="form-control" asp-items="Html.GetEnumSelectList<TypesCars>()"></select>
+                    <span asp-validation-for="TypesCars" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-outline-success float-end" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script>
+        $(document).ready(function() {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $("#Imagen").val();
+        })
+    </script>
+}

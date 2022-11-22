@@ -1,5 +1,5 @@
 ﻿using imperiumCar2.Models;
-using imperiunCar2.Data.ViewModels;
+using imperiumCar2.Data.ViewModels;
 using ustaTickets.Data.Base;
 
 namespace imperiunCar2.Data.Service

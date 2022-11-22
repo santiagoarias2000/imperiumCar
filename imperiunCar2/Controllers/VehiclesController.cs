@@ -2,7 +2,7 @@
 using imperiunCar2.Data.Service;
 using imperiumCar2.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using imperiunCar2.Data.ViewModels;
+using imperiumCar2.Data.ViewModels;
 
 namespace imperiunCar2.Controllers
 {
@@ -16,13 +16,13 @@ namespace imperiunCar2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var data = await _service.GetAllAsync(tp => tp.CarsBrands);
+            var data = await _service.GetAllAsync(cb => cb.CarsBrands);
             return View(data);
         }
 
         public async Task<IActionResult> Filter(string searchString)
         {
-            var data = await _service.GetAllAsync(tp => tp.CarsBrands);
+            var data = await _service.GetAllAsync(cb => cb.CarsBrands);
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -46,7 +46,7 @@ namespace imperiunCar2.Controllers
         public async Task<IActionResult> Create()
         {
             var movieDropdownsData = await _service.GetNewVehiclesDropdownsValues();
-            ViewBag.TypePerson = new SelectList(
+            ViewBag.CarBrands = new SelectList(
                 movieDropdownsData.CarBrands, "Id", "NameBrands"
             );
             return View();
@@ -79,15 +79,12 @@ namespace imperiunCar2.Controllers
                 PriceSale = vehicleDetails.PriceSale,
                 LicensePlate = vehicleDetails.LicensePlate,
                 Sure = vehicleDetails.Sure,
-                Transfer = vehicleDetails.Transfer,
                 Description = vehicleDetails.Description,
                 Imagen = vehicleDetails.Imagen,
                 TechnicalMechanical = vehicleDetails.TechnicalMechanical,
                 ModelYear = vehicleDetails.ModelYear,
                 TypesCars = vehicleDetails.TypesCars,
                 IdCarsBrands = vehicleDetails.IdCarsBrands,
-                CarsBrands = vehicleDetails.CarsBrands,
-                Contract = vehicleDetails.Contract,
             };
 
             var movieDropdownsData = await _service.GetNewVehiclesDropdownsValues();

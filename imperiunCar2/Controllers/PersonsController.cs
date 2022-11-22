@@ -2,7 +2,7 @@
 using imperiunCar2.Data.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using imperiunCar2.Data.ViewModels;
+using imperiumCar2.Data.ViewModels;
 
 namespace imperiunCar2.Controllers
 {
@@ -47,7 +47,7 @@ namespace imperiunCar2.Controllers
         {
             var movieDropdownsData = await _service.GetNewPersonDropdownsValues();
             ViewBag.TypePerson = new SelectList(
-                movieDropdownsData.TypePerson, "Id", "TypePersonName"
+                movieDropdownsData.TypesPersons, "Id", "TypePersonName"
             );
             return View();
         }
@@ -58,7 +58,7 @@ namespace imperiunCar2.Controllers
             if (!ModelState.IsValid)
             {
                 var movieDropdownsData = await _service.GetNewPersonDropdownsValues();
-                ViewBag.TypePerson = new SelectList(movieDropdownsData.TypePerson, "Id", "TypePersonName");;
+                ViewBag.TypesPersons = new SelectList(movieDropdownsData.TypesPersons, "Id", "TypePersonName");;
 
                 return View(movie);
             }
@@ -79,11 +79,10 @@ namespace imperiunCar2.Controllers
                 Name = personDetails.Name,
                 LastName = personDetails.LastName,
                 PhoneNumber = personDetails.PhoneNumber,
-                IdTypePerson = personDetails.IdTypePerson,
             };
 
             var movieDropdownsData = await _service.GetNewPersonDropdownsValues();
-            ViewBag.TypePerson = new SelectList(movieDropdownsData.TypePerson, "Id", "TypePersonName");
+            ViewBag.TypesPersons = new SelectList(movieDropdownsData.TypesPersons, "Id", "TypePersonName");
             return View(response);
         }
 
@@ -95,7 +94,7 @@ namespace imperiunCar2.Controllers
             if (!ModelState.IsValid)
             {
                 var movieDropdownsData = await _service.GetNewPersonDropdownsValues();
-                ViewBag.TypePerson = new SelectList(movieDropdownsData.TypePerson, "Id", "TypePersonName");
+                ViewBag.TypesPersons = new SelectList(movieDropdownsData.TypesPersons, "Id", "TypePersonName");
 
                 return View(person);
             }

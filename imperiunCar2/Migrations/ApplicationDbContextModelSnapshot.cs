@@ -7,7 +7,7 @@ using imperiunCar2.Data;
 
 #nullable disable
 
-namespace imperiunCar2.Migrations
+namespace imperiumCar2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -52,9 +52,9 @@ namespace imperiunCar2.Migrations
                     b.Property<int>("IdVehicle")
                         .HasColumnType("int");
 
-                    b.Property<double>("SaleValue")
+                    b.Property<int>("SaleValue")
                         .HasMaxLength(50)
-                        .HasColumnType("double");
+                        .HasColumnType("int");
 
                     b.Property<int>("TypesContracts")
                         .HasColumnType("int");
@@ -113,7 +113,7 @@ namespace imperiunCar2.Migrations
                     b.Property<int>("IdVehicle")
                         .HasColumnType("int");
 
-                    b.Property<int>("Value")
+                    b.Property<int>("ValueTrans")
                         .HasMaxLength(50)
                         .HasColumnType("int");
 

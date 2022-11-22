@@ -36,7 +36,7 @@ namespace imperiumCar2.Models
         [Display(Name = "License plate")]
         [Required(ErrorMessage = "License plate is required")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "License plate must be between 3 and 50 chars")]
-        public string? LicensePlate { get; set; }
+        public string LicensePlate { get; set; }
 
         [Display(Name = "Sure")]
         [Required(ErrorMessage = "Sure is required")]
@@ -50,7 +50,7 @@ namespace imperiumCar2.Models
         //Relationship
         public int IdCarsBrands { get; set; }
         [ForeignKey("IdCarsBrands")]
-        public CarBrands? CarsBrands { get; set; }
+        public CarBrands CarsBrands { get; set; }
 
         public TypesCars TypesCars { get; set; }
 

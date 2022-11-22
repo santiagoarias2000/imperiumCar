@@ -1,5 +1,5 @@
 ﻿@using imperiumCar2.Data.Emun
-@model imperiumCar2.Models.Vehicles
+@model imperiumCar2.Data.ViewModels.NewCarBrandsVM
 
 @{
     ViewData["Title"] = "Update Vehicles";
@@ -16,14 +16,9 @@
                         <img id="ProfilePicturePreview" />
                     </div>
                     <div class="form-group">
-                        <label asp-for="CarsBrands" class="control-label"></label>
-                        <input asp-for="CarsBrands" class="form-control" />
-                        <span asp-validation-for="CarsBrands" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Contract" class="control-label"></label>
-                        <input asp-for="Contract" class="form-control" />
-                        <span asp-validation-for="Contract" class="text-danger"></span>
+                        <label asp-for="IdCarsBrands" class="control-label"></label>
+                        <input asp-for="IdCarsBrands" class="form-control" />
+                        <span asp-validation-for="IdCarsBrands" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Description" class="control-label"></label>
@@ -52,18 +47,13 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Sure" class="control-label"></label>
-                        <input asp-for="Sure" class="form-control" />
+                        <input type="checkbox" asp-for="Sure" />
                         <span asp-validation-for="Sure" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="TechnicalMechanical" class="control-label"></label>
-                        <input asp-for="TechnicalMechanical" class="form-control" />
+                        <input type="checkbox" asp-for="TechnicalMechanical" />
                         <span asp-validation-for="TechnicalMechanical" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Transfer" class="control-label"></label>
-                        <input asp-for="Transfer" class="form-control" />
-                        <span asp-validation-for="Transfer" class="text-danger"></span>
                     </div>
                         <div class="form-group">
                             <label asp-for="TypesCars" class="control-label"></label>

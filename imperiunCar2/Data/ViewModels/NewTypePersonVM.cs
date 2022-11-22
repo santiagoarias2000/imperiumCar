@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace imperiunCar2.Data.ViewModels
+namespace imperiumCar2.Data.ViewModels
 {
     public class NewTypePersonVM
     {
@@ -31,15 +31,7 @@ namespace imperiunCar2.Data.ViewModels
         public string PhoneNumber { get; set; }
         [Display(Name = "Select Type Person")]
         [Required(ErrorMessage = "Type Person is required")]
-        public List<int> TypesPersonIds { get; set; }
-
-        //Relationship
-
         public int IdTypePerson { get; set; }
-        [ForeignKey("IdTypesPerson")]
-        public TypesPersons TypePerson { get; set; }
-
-        public List<Contracts>? Contract { get; set; }
 
 
     }

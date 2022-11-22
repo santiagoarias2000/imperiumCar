@@ -303,32 +303,32 @@ namespace imperiunCar2.Data
                    {
                         new Transfers()
                         {
-                            Value = 12312,
+                            ValueTrans = 12312,
                             IdVehicle = 1
                         },
                         new Transfers()
                         {
-                            Value = 12342,
+                            ValueTrans = 12342,
                             IdVehicle = 2
                         },
                         new Transfers()
                         {
-                            Value = 13421,
+                            ValueTrans = 13421,
                             IdVehicle = 3
                         },
                          new Transfers()
                         {
-                            Value = 12987,
+                            ValueTrans = 12987,
                             IdVehicle = 4
                         },
                           new Transfers()
                         {
-                            Value = 12451,
+                            ValueTrans = 12451,
                             IdVehicle = 5
                         },
                            new Transfers()
                         {
-                            Value = 12765,
+                            ValueTrans = 12765,
                             IdVehicle = 6
                         },
                         });

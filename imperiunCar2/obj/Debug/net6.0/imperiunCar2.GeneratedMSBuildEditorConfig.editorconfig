@@ -23,12 +23,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyQnJhbmRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/CarBrands/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyQnJhbmRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/CarBrands/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyQnJhbmRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/CarBrands/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyQnJhbmRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/CarBrands/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyQnJhbmRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Contracts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhY3RzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Contracts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhY3RzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Contracts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhY3RzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Contracts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udHJhY3RzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Contracts/Index.cshtml]
@@ -41,6 +65,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Persons/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Persons/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Persons/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Persons/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Persons/Index.cshtml]
@@ -59,8 +99,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Transfers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Transfers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Transfers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Transfers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Transfers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/TypesPersons/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNQZXJzb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/TypesPersons/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNQZXJzb25zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/TypesPersons/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNQZXJzb25zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/TypesPersons/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXNQZXJzb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/TypesPersons/Index.cshtml]
@@ -69,6 +141,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Vehicles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWNsZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Vehicles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWNsZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Vehicles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVoaWNsZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/santy/OneDrive/Documentos/Santiago Universidad/7 SEMESTRE/ASP.NET/imperiunCar2/imperiunCar2/Views/Vehicles/Edit.cshtml]

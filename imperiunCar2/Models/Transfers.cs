@@ -11,8 +11,7 @@ namespace imperiumCar2.Models
 
         [Display(Name = "Value")]
         [Required(ErrorMessage = "Value is required")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Value must be between 3 and 50 chars")]
-        public int Value { get; set; }
+        public int ValueTrans { get; set; }
 
 
         //Relationship

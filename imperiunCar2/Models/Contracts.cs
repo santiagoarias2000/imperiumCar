@@ -12,8 +12,7 @@ namespace imperiumCar2.Models
 
         [Display(Name = "Sale Value")]
         [Required(ErrorMessage = "Sale Value is required")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Sale value must be between 3 and 50 chars")]
-        public double SaleValue { get; set; }
+        public int SaleValue { get; set; }
 
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Description is required")]

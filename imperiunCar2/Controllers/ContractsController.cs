@@ -1,7 +1,9 @@
-﻿using imperiumCar2.Models;
+﻿using imperiumCar2.Data.ViewModels;
+using imperiumCar2.Models;
 using imperiunCar2.Data.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace imperiunCar2.Controllers
 {
@@ -13,68 +15,97 @@ namespace imperiunCar2.Controllers
             _service = service;
         }
 
+
         public async Task<IActionResult> Index()
         {
-            var allData = await _service.GetAllAsync();
-            return View(allData);
+            var data = await _service.GetAllAsync(p => p.Persons, v => v.Vehicle);
+            return View(data);
         }
-        //Get: Contracts/Create
-        public IActionResult Create()
+
+        public async Task<IActionResult> Filter(string searchString)
         {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create([Bind("SaleValue, Description")] Contracts contracts)
-        {
-            if (!ModelState.IsValid)
+            var data = await _service.GetAllAsync(p => p.Persons, v => v.Vehicle);
+
+            if (!string.IsNullOrEmpty(searchString))
             {
-                return View(contracts);
+                var filteredResult = data.Where(
+                    n => n.Persons.Name.Contains(searchString)
+                ).ToList();
+                return View("Index", filteredResult);
             }
-            await _service.AddAsync(contracts);
-            return RedirectToAction(nameof(Index));
+
+            return View("Index", data);
         }
-        //Get: Contracts/Details/1
+
+        // Get: Person/Details/id
         public async Task<IActionResult> Details(int id)
         {
-            var contractsDetails = await _service.GetByIdAsync(id);
-            if (contractsDetails == null) return View("Empty");
-            return View(contractsDetails);
+            var data = await _service.GetConstractsByIdAsync(id);
+            return View(data);
         }
-        //Get: Contracts/Edit/id
-        public async Task<IActionResult> Edit(int id)
+
+        // Get: Person/Create
+        public async Task<IActionResult> Create()
         {
-            var CarBrandsDetails = await _service.GetByIdAsync(id);
-            if (CarBrandsDetails == null) return View("NotFound");
-            return View(CarBrandsDetails);
+            var movieDropdownsData = await _service.GetNewContractsDropdownsValues();
+            ViewBag.Persons = new SelectList(
+                movieDropdownsData.Persons, "Id", "Document"
+            );
+            ViewBag.Vehicles = new SelectList(
+                movieDropdownsData.Vehicles, "Id", "LicensePlate"
+            );
+            return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SaleValue, Description")] Contracts contracts)
+        public async Task<IActionResult> Create(NewContractsVM contracts)
         {
             if (!ModelState.IsValid)
             {
-                //view data error...
-                //var message = string.Join(" | ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
+                var movieDropdownsData = await _service.GetNewContractsDropdownsValues();
+                ViewBag.Persons = new SelectList(movieDropdownsData.Persons, "Id", "Document");
+                ViewBag.Vehicles = new SelectList(movieDropdownsData.Vehicles, "Id", "LicensePlate");
+
                 return View(contracts);
             }
-            await _service.UpdateAsync(id, contracts);
+            await _service.AddNewContractsAsync(contracts);
             return RedirectToAction(nameof(Index));
-
-        }
-        //Get: Contracts/Delete/id
-        public async Task<IActionResult> Delete(int id)
-        {
-            var carBrandsDetails = await _service.GetByIdAsync(id);
-
-            if (carBrandsDetails == null) return View("NotFound");
-            return View(carBrandsDetails);
         }
 
-        [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        // Get: Movie/Edit/id
+        public async Task<IActionResult> Edit(int id)
         {
-            var carBrandsDetails = await _service.GetByIdAsync(id);
-            if (carBrandsDetails == null) return View("NotFound");
-            await _service.DeleteAsync(id);
+            var contractsDetails = await _service.GetConstractsByIdAsync(id);
+            if (contractsDetails == null) return View("NotFound");
+
+            var response = new NewContractsVM()
+            {
+                Id = contractsDetails.Id,
+                SaleValue = contractsDetails.SaleValue,
+                Description = contractsDetails.Description,
+                IdPersons = contractsDetails.IdPersons,
+                IdVehicle = contractsDetails.IdVehicle
+            };
+
+            var movieDropdownsData = await _service.GetNewContractsDropdownsValues();
+            ViewBag.Persons = new SelectList(movieDropdownsData.Persons, "Id", "Document");
+            ViewBag.Vehicles = new SelectList(movieDropdownsData.Vehicles, "Id", "LicensePlate");
+            return View(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, NewContractsVM person)
+        {
+            if (id != person.Id) return View("NotFound");
+
+            if (!ModelState.IsValid)
+            {
+                var movieDropdownsData = await _service.GetNewContractsDropdownsValues();
+                ViewBag.Persons = new SelectList(movieDropdownsData.Persons, "Id", "Document");
+                ViewBag.Vehicles = new SelectList(movieDropdownsData.Vehicles, "Id", "LicensePlate");
+                return View(person);
+            }
+            await _service.UpdateContractsAsync(person);
             return RedirectToAction(nameof(Index));
         }
     }

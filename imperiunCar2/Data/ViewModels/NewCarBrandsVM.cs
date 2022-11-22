@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace imperiunCar2.Data.ViewModels
+namespace imperiumCar2.Data.ViewModels
 {
     public class NewCarBrandsVM
     {
@@ -48,19 +48,10 @@ namespace imperiunCar2.Data.ViewModels
         [Required(ErrorMessage = "Technical Mechanical is required")]
         public Boolean TechnicalMechanical { get; set; }
 
-
-        //Relationship
-        public int IdCarsBrands { get; set; }
-        [ForeignKey("IdCarsBrands")]
-        public CarBrands? CarsBrands { get; set; }
-
         public TypesCars TypesCars { get; set; }
-        [Display(Name = "Select Type CAr Brands")]
+        [Display(Name = "Select Type Car Brands")]
         [Required(ErrorMessage = "Type Person is required")]
-        public List<int> CarBrandsIds { get; set; }
+        public int IdCarsBrands { get; set; }
 
-        public List<Contracts>? Contract { get; set; }
-
-        public List<Transfers>? Transfer { get; set; }
     }
 }

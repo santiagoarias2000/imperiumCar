@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace imperiunCar2.Migrations
+namespace imperiumCar2.Migrations
 {
     public partial class AppInitial : Migration
     {
@@ -291,7 +291,7 @@ namespace imperiunCar2.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Value = table.Column<int>(type: "int", maxLength: 50, nullable: false),
+                    ValueTrans = table.Column<int>(type: "int", maxLength: 50, nullable: false),
                     IdVehicle = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -312,7 +312,7 @@ namespace imperiunCar2.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    SaleValue = table.Column<double>(type: "double", maxLength: 50, nullable: false),
+                    SaleValue = table.Column<int>(type: "int", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     IdPersons = table.Column<int>(type: "int", nullable: false),

@@ -1,8 +1,7 @@
 ﻿using imperiunCar2.Data.Service;
 using Microsoft.AspNetCore.Mvc;
-using imperiumCar2.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using imperiunCar2.Data.ViewModels;
+using imperiumCar2.Data.ViewModels;
 
 namespace imperiunCar2.Controllers
 {
@@ -16,13 +15,13 @@ namespace imperiunCar2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var data = await _service.GetAllAsync(tp => tp.Vehicle);
+            var data = await _service.GetAllAsync(v => v.Vehicle);
             return View(data);
         }
 
         public async Task<IActionResult> Filter(string searchString)
         {
-            var data = await _service.GetAllAsync(tp => tp.Vehicle);
+            var data = await _service.GetAllAsync(v => v.Vehicle);
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -46,8 +45,8 @@ namespace imperiunCar2.Controllers
         public async Task<IActionResult> Create()
         {
             var movieDropdownsData = await _service.GetNewTransfersDropdownsValues();
-            ViewBag.TypePerson = new SelectList(
-                movieDropdownsData.Vehicles, "Id", "Description"
+            ViewBag.Vehicles = new SelectList(
+                movieDropdownsData.Vehicles, "Id", "LicensePlate"
             );
             return View();
         }
@@ -58,7 +57,7 @@ namespace imperiunCar2.Controllers
             if (!ModelState.IsValid)
             {
                 var movieDropdownsData = await _service.GetNewTransfersDropdownsValues();
-                ViewBag.TypePerson = new SelectList(movieDropdownsData.Vehicles, "Id", "Description"); 
+                ViewBag.Vehicles = new SelectList(movieDropdownsData.Vehicles, "Id", "LicensePlate"); 
 
                 return View(newVehicle);
             }
@@ -76,27 +75,28 @@ namespace imperiunCar2.Controllers
             {
                 Id = transfersDetails.Id,
                 IdVehicle = transfersDetails.IdVehicle,
+                ValueTrans = transfersDetails.ValueTrans
             };
 
             var movieDropdownsData = await _service.GetNewTransfersDropdownsValues();
-            ViewBag.Vehicles(movieDropdownsData.Vehicles, "Id", "Description");
+            ViewBag.Vehicles = new SelectList(movieDropdownsData.Vehicles, "Id", "LicensePlate");
 
             return View(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, NewTypePersonVM vehicle)
+        public async Task<IActionResult> Edit(int id, NewVehicleVM vehicle)
         {
             if (id != vehicle.Id) return View("NotFound");
 
             if (!ModelState.IsValid)
             {
                 var movieDropdownsData = await _service.GetNewTransfersDropdownsValues();
-                ViewBag.Vehicles = new SelectList(movieDropdownsData.Vehicles, "Id", "Description");
+                ViewBag.Vehicles = new SelectList(movieDropdownsData.Vehicles, "Id", "LicensePlate");
 
                 return View(vehicle);
             }
-            //await _service.UpdateTransfersAsync(vehicle);
+            await _service.UpdateTransfersAsync(vehicle);
             return RedirectToAction(nameof(Index));
         }
     }

@@ -1,7 +1,7 @@
 ﻿using imperiumCar2.Models;
 using Microsoft.EntityFrameworkCore;
 using ustaTickets.Data.Base;
-using imperiunCar2.Data.ViewModels;
+using imperiumCar2.Data.ViewModels;
 using System.Linq.Expressions;
 
 namespace imperiunCar2.Data.Service
@@ -22,21 +22,10 @@ namespace imperiunCar2.Data.Service
                 Name = data.Name,
                 LastName = data.LastName,
                 PhoneNumber = data.PhoneNumber,
-                IdTypePerson = data.IdTypePerson,
             };
             await _context.Persons.AddAsync(newPerson);
             await _context.SaveChangesAsync();
 
-            // Add Type
-            foreach (var typePersonId in data.TypesPersonIds)
-            {
-                var newTypePerson  = new TypesPersons()
-                {
-                    Id = newPerson.Id
-                };
-                await _context.TypesPersons.AddAsync(newTypePerson);
-            }
-            await _context.SaveChangesAsync();
         }
 
         public Task DeletePersonAsync(NewTypePersonVM data)
@@ -58,7 +47,7 @@ namespace imperiunCar2.Data.Service
             var response = new NewTypePersonDropdownsVM()
             {
 
-                TypePerson = await _context.TypesPersons.OrderBy(a => a.TypePersonName).ToListAsync(),
+                TypesPersons = await _context.TypesPersons.OrderBy(a => a.TypePersonName).ToListAsync(),
             };
 
             return response;
@@ -75,7 +64,6 @@ namespace imperiunCar2.Data.Service
                 dbPerson.Name = data.Name;
                 dbPerson.LastName = data.LastName;
                 dbPerson.PhoneNumber = data.PhoneNumber;
-                dbPerson.IdTypePerson = data.IdTypePerson;
 
                 await _context.SaveChangesAsync();
             }
@@ -83,17 +71,6 @@ namespace imperiunCar2.Data.Service
             // Remove existing actors
             var existingPersonDb = await _context.TypesPersons.Where(m => m.Id == data.Id).ToListAsync();
             _context.TypesPersons.RemoveRange(existingPersonDb);
-            await _context.SaveChangesAsync();
-
-            // Add Movie Actors
-            foreach (var typePersonId in data.TypesPersonIds)
-            {
-                var newPerson = new TypesPersons()
-                {
-                    Id = data.Id
-                };
-                await _context.TypesPersons.AddAsync(newPerson);
-            }
             await _context.SaveChangesAsync();
         }
 
